@@ -1,28 +1,33 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+ <div>
+  <input type="number" v-model="operand1"/>
+  <input type="number" v-model="operand2"/>
+
+  <p>Результат: {{ result }} </p>
+  <button @click="result = Number(operand1) + Number(operand2)">+</button>
+  <button @click="result = operand1 - operand2">-</button>
+  <button @click="result = operand1 * operand2">*</button>
+  <button @click="result = operand1 / operand2">/</button>
+  <button @click="result = Math.pow(operand1, operand2)">^</button> 
+  <button @click="result = parseInt(operand1/operand2)">ЦД</button>
+ </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+    data() {
+      return {
+        operand1: 0,
+        operand2: 0,
+        result: 0
+      }
+    }
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
